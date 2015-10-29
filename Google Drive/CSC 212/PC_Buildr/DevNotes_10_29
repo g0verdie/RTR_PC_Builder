@@ -1,0 +1,16 @@
+Front End
+-> Pretty looking buttons
+-> Sliders
+-> Send a string with all the info to the backend
+
+Back End
+-> interpret the info string from the front end and send it to the database
+-> have the logic implemented for what specs to choose for a rig.
+-> Theoretically have autoupdated builds
+
+
+base case for the gaming rig (1000) - medium everything with a bit more given to storage.
+RAM? Minimum specs. Base case is 4Gb for casual. 8GB for gaming (if >$1200, make it 16). 16Gb for professional.
+
+Newegg API has Java/PHP/C#/Python implementation, but we can always pipe the result JSON to Ruby/anything else.
+Lowest CPU range is Haswell
