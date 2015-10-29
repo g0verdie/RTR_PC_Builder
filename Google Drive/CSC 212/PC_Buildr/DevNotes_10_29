@@ -13,4 +13,4 @@ base case for the gaming rig (1000) - medium everything with a bit more given to
 RAM? Minimum specs. Base case is 4Gb for casual. 8GB for gaming (if >$1200, make it 16). 16Gb for professional.
 
 Newegg API has Java/PHP/C#/Python implementation, but we can always pipe the result JSON to Ruby/anything else.
-Lowest CPU range is Haswell
+Lowest CPU range is Haswell, lowest GPU range for NVidia is 700 series, no lowest AMD GPU's yet. Also, NO AMD CPU's.
