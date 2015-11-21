@@ -4,3 +4,4 @@ pulling variable off Brandon's front end either as a part of HTML or from POST r
 ruby captures variables from HTLM .erb templates
 oh yeah, rails db is actually an abstracted MySQL
 controller? maybe
+http://guides.rubyonrails.org/action_controller_overview.html
