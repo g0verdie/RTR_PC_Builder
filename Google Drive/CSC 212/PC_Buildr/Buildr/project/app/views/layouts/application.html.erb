@@ -7,8 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <%= yield %>
+  <h2 class = "text-center">What will you be using your computer for?</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <a href = "specs.html?type=casual">
+        <img src="..." alt="..." class="img-rounded">
+        <p>BLAH BLAH BLAH CASUAL USE ONLY</p>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href = "specs.html?type=gaming">
+        <img src="..." alt="..." class="img-rounded">
+        <p>BLAH BLAH BLAH PC MASTER RACE</p>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href = "specs.html?type=professional">
+        <img src="..." alt="..." class="img-rounded">
+        <p>BLAH BLAH BLAH SUPER EXPENSIVE PROFESSIONALS AND STUFF</p>
+      </a>
+    </div>
+  </div>
 </body>
 </html>
