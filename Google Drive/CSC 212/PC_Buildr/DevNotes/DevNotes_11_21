@@ -1,0 +1,6 @@
+To get current URL - request.original_url
+Backend:
+pulling variable off Brandon's front end either as a part of HTML or from POST requests
+ruby captures variables from HTLM .erb templates
+oh yeah, rails db is actually an abstracted MySQL
+controller? maybe
