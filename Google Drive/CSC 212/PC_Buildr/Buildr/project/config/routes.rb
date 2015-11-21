@@ -54,4 +54,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   root to: 'pages#home'
+  get '/specs' => 'pages#specs'
 end
