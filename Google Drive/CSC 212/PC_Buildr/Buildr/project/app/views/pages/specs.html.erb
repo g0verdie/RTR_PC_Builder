@@ -1,1 +1,53 @@
-<h1>SPECS</h1>
+<h1>Specs bois</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4">
+            <div id="sidebar"></div>
+        </div>
+        <div class="col-sm-8">
+            <div class="slider"></div>
+            <div class="desc1">
+                <p>
+                    BLAH BLAH NUMBER ONE
+                </p>
+            </div>
+            <div class="slider"></div>
+            <div class="desc1">
+                <p>
+                    BLAH BLAH NUMBER TWO
+                </p>
+            </div>
+            <div class="slider"></div>
+            <div class="desc1">
+                <p>
+                    BLAH BLAH NUMBER THRREE
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+       $( "#sidebar" ).slider({
+        	min: 1,
+        	max:6,
+        	step:.5,
+        	orientation: "vertical",
+        	change: function( event, ui ) {
+        	    $("#info").text('Slider = ' + ui.value);
+        	}
+        });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+       $( ".slider" ).slider({
+        	min: 1,
+        	max:6,
+        	step:.5,
+        	change: function( event, ui ) {
+        	    $("#info").text('Slider = ' + ui.value);
+        	}
+        });
+    });
+</script>
