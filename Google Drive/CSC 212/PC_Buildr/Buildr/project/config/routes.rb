@@ -55,4 +55,6 @@ Rails.application.routes.draw do
   #   end
   root to: 'pages#home'
   get '/specs' => 'pages#specs'
+  get '/size' => 'pages#size'
+  get '/home' => 'pages#home'
 end

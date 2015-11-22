@@ -6,4 +6,8 @@ class PagesController < ApplicationController
     def specs
         puts "Specs, bitches"
     end
+    
+    def size
+        puts "Size, bitches"
+    end
 end
