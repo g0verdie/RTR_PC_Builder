@@ -1,9 +1,14 @@
-<h1><a href = "/home.html"> PC Buildr Alpha</a></h1>
+<h1>PC Buildr Alpha</h1>
 <% price = params[:price].to_i%>
 <% processor = (price * params[:processor].to_f)/100 %>
 <% graphics = (price * params[:graphics].to_f)/100 %>
 <% storage = (price * params[:storage].to_f)/100 %>
 <% size = params[:case] %>
+<% DB.run File.read('RTR_PC_Builder/Google Drive/CSC 212/PC_Buildr/Buildr/db-updated/dq.sql')%>
+<% cpu = DB[:cpu].max(:Price).where(:Price => 0..processor) %>
+<% gpu = DB[:gpu].max(:Price).where(:Price => 0..graphics) %>
+<% ssd  = DB[:ssd].max(:Price).where(:Price=> 0..storage) %>
+<% cs = DB[:size].max(:Price).where(:Price => 0..size) %>
 <h2 class="text-center">The Results Are In!</h2>
 <div class="container-fluid">
     <div class="row">
@@ -11,23 +16,19 @@
             <div class="row">
                 <div class="col-sm-3">
                     <h4 class="text-center">CPU:</h4>
-                    <p class="text-center">For more information about your cpu, click here.</p>
-                    <h4 class="text-center">CPU Cooler:</h4>
-                    <p class="text-center">The CPU is the hottest component of your computer that requires cooling. The cooler your cpu is, the better it will perform and the longer it will last. With this cooler, your cpu will be at a cool temperature for what you want to do.</p>
+                    <p class="text-center"> <%= cpu.get(:Name) %></p>
                     <h4 class="text-center">RAM:</h4>
-                    <p class="text-center">Random Access Memory (RAM) is what helps your cpu perform tasks. With [insert gb of ram here] you will be able to [enter criterion here].</p>
-                    <h4 class="text-center">SSD:</h4>
-                    <p class="text-center">The Solid State Drive (SSD) is where your operating system will be stored on. </p>
-                    <h4 class="text-center">HDD:</h4>
-                    <p class="text-center">This is where the rest of your information will be stored on. This hard drive will be able to store [insert number] of songs. </p>
+                    <p class="text-center"> ram specs here</p>
+                    <h4 class="text-center">Memory:</h4>
+                    <p class="text-center"> <%= gpu.get(:Name) %></p>
                     <h4 class="text-center">Case:</h4>
-                    <p class="text-center">The case is what protects your computer components and is what you see.</p>
+                    <p class="text-center"><%= cs.get(:Name) %></p>
                     <h4 class="text-center">GPU:</h4>
-                    <p class="text-center">Your graphical processing unit (GPU) is fundamental for displaying what is on your screen. With the current processor you have, this is what you will be able to play at 60fps (description here). For more information about your GPU [click here].</p>
-                    <h4 class="text-center">Motherboard:</h4>
-                    <p class="text-center">Your motherboard is what enables your computer components to communicate with each other. Your current motherboard can (description here).</p>
+                    <p class="text-center"><%= gpu.get(:Name) %></p>
+                    <h4 class="text-center">Board:</h4>
+                    <p class="text-center">board specs here</p>
                     <h4 class="text-center">PSU:</h4>
-                    <p class="text-center">The power supply is what powers your computer on and connects it to an outlet.</p>
+                    <p class="text-center">psu specs here</p>
                     <h4 class="text-center">Other info:</h4>
                     <p class="text-center">other info (ports, bluetooth, ect.) here</p>
                 </div>
