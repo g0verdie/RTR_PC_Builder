@@ -12,46 +12,53 @@
 <div class="container-fluid">
     <div class="row">
         <div class = "col-md-8 col-md-offset-2 content">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class = "row">
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <h4>Price</h4>
-                            <div id="sidebar"></div>
+            <form action="size.html">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class = "row">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <h4>Price</h4>
+                                <input id="price-input" type="hidden" name="price" />
+                                <div id="sidebar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <h3>Move the sliders below to adjust your computer's specs to your liking</h3>
+                        <h4>Processor</h4>
+                        <input id="processor-input" type="hidden" name="processor" />
+                        <div id="slider1" class="slider"></div>
+                        <div class="desc1">
+                            <p>
+                                BLAH BLAH NUMBER ONE
+                            </p>
+                        </div>
+                        <h4>Graphics</h4>
+                        <input id="graphics-input" type="hidden" name="graphics" />
+                        <div id="slider2" class="slider"></div>
+                        <div class="desc2">
+                            <p>
+                                BLAH BLAH NUMBER TWO
+                            </p>
+                        </div>
+                        <h4>Storage</h4>
+                        <input id="storage-input" type="hidden"
+                        name="storage" />
+                        <div id="slider3" class="slider"></div>
+                        <div class="desc3">
+                            <p>
+                                BLAH BLAH NUMBER THRREE
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-8">
-                    <h3>Move the sliders below to adjust your computer's specs to your liking</h3>
-                    <h4>Processor</h4>
-                    <div id="slider1" class="slider"></div>
-                    <div class="desc1">
-                        <p>
-                            BLAH BLAH NUMBER ONE
-                        </p>
-                    </div>
-                    <h4>Graphics</h4>
-                    <div id="slider2" class="slider"></div>
-                    <div class="desc2">
-                        <p>
-                            BLAH BLAH NUMBER TWO
-                        </p>
-                    </div>
-                    <h4>Storage</h4>
-                    <div id="slider3" class="slider"></div>
-                    <div class="desc3">
-                        <p>
-                            BLAH BLAH NUMBER THRREE
-                        </p>
-                    </div>
+                <div class="row buttons">
+                    <a href="home.html" class="col-sm-1 col-sm-offset-1"><button class="btn btn-default">BACK</button></a>
+                    <% link = "?type=" + params[:type].to_s+"&price="+price.to_s+"&cpu="+cpu.to_s+"&gfx="+gfx.to_s+"&storage="+storage.to_s %>
+                    <button type="submit" class="btn btn-default">NEXT</button>
                 </div>
             </div>
-            <div class="row buttons">
-                <a href="home.html" class="col-sm-1 col-sm-offset-1"><button class="btn btn-default">BACK</button></a>
-                <% link = "?type=" + params[:type].to_s+"&price="+price.to_s+"&cpu="+cpu.to_s+"&gfx="+gfx.to_s+"&storage="+storage.to_s %>
-                <a href= <%= puts link %> class="col-sm-1 col-sm-offset-8"><button class="btn btn-default">NEXT</button></a>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 
@@ -62,9 +69,8 @@
         	max:6,
         	step:.5,
         	orientation: "vertical",
-            <% price = 1 %>,
         	change: function( event, ui ) {
-              
+                $('#price-input').val(ui.value);
         	    $("#info").text('Slider = ' + ui.value);
         	}
         });
@@ -89,6 +95,19 @@
         });
     });
 </script>
+            slidechange: function(event, ui) {
+                var id = this.id;
+                if(id=='slider3') {
+                    $('#storage-input').val(ui.value);
+                    $(' .desc3').show();
+                    $(' .desc2').hide();
+                    $(' .desc1').hide();
+                }
+                if(id=='slider2') {
+                    $('#graphics-input').val(ui.value);
+                    $(' .desc2').show();
+                    $(' .desc3').hide();
+                    $(' .desc1').hide();
 <script>
     $(document).ready(function(){
         $('.slider').slider().on({
@@ -96,22 +115,9 @@
             // change: function() {
             //   alert('change triggered');
             // },
-            slidechange: function() {
-                var id = this.id;
-                if(id=='slider3') {
-                   
-                    $(' .desc3').show();
-                    $(' .desc2').hide();
-                    $(' .desc1').hide();
-                }
-                if(id=='slider2') {
-                   
-                    $(' .desc2').show();
-                    $(' .desc3').hide();
-                    $(' .desc1').hide();
                 }
                 if(id=='slider1') {
-                   
+                    $('#processor-input').val(ui.value);
                     $(' .desc1').show();
                     $(' .desc2').hide();
                     $(' .desc3').hide();
