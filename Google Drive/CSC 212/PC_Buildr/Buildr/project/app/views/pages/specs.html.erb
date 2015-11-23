@@ -84,9 +84,9 @@
 <script>
     $(document).ready(function(){
        $( "#sidebar" ).slider({
-        	min: 1,
-        	max:6,
-        	step:.5,
+        	min: 500,
+        	max:3000,
+        	step:50,
         	orientation: "vertical",
         	change: function( event, ui ) {
                 $('#price-input').val(ui.value);
@@ -99,8 +99,8 @@
     $(document).ready(function(){
        $( ".slider" ).slider({
         	min: 1,
-        	max:6,
-        	step:.5,
+        	max:100,
+        	step:1,
         	change: function( event, ui ) {
         	    $("#info").text('Slider = ' + ui.value);
         	}
