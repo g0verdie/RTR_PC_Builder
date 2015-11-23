@@ -117,8 +117,19 @@
     });
 </script>
 <script>
-            slidechange: function(event, ui) {
+
+    </script>
+<script>
+    $(document).ready(function(){
+        $('.slider').slider().on({
+         slidechange: function(event, ui) {
                 var id = this.id;
+                if(id=='slider1') {
+                    $('#processor-input').val(ui.value);
+                    $(' .desc1').show();
+                    $(' .desc2').hide();
+                    $(' .desc3').hide();
+                }
                 if(id=='slider3') {
                     $('#storage-input').val(ui.value);
                     $(' .desc3').show();
@@ -130,22 +141,8 @@
                     $(' .desc2').show();
                     $(' .desc3').hide();
                     $(' .desc1').hide();
-    </script>
-<script>
-    $(document).ready(function(){
-        $('.slider').slider().on({
-            
-            // change: function() {
-            //   alert('change triggered');
-            // },
-                }
-                if(id=='slider1') {
-                    $('#processor-input').val(ui.value);
-                    $(' .desc1').show();
-                    $(' .desc2').hide();
-                    $(' .desc3').hide();
-                }
-            }
+                }}
+            })
         });
     });
 </script>
