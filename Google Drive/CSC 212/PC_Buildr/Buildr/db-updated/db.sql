@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `case` (
   `Price` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nForm = 0 (ATX Full), 1, (ATX Mid), 2 (Micro ATX), 2 (Mini ITX)\r\nGaming = Processing power level in gaming\r\nCasual = processing power level in casual\r\nPro = Processing power level in professional\r\nPrice = price';
 
--- Dumping data for table parts.case: ~0 rows (approximately)
+-- Dumping data for table parts.case: ~5 rows (approximately)
 /*!40000 ALTER TABLE `case` DISABLE KEYS */;
 INSERT INTO `case` (`ID`, `Name`, `Form`, `Gaming`, `Casual`, `Pro`, `Price`) VALUES
 	(1, 'Rosewill Rise ATX', 0, 0, 1, 0, 75),
@@ -96,15 +96,15 @@ CREATE TABLE IF NOT EXISTS `gpu` (
   `Casual` tinyint(4) NOT NULL,
   `Pro` tinyint(4) NOT NULL,
   `Price` smallint(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nPower = Power needed in watt\r\nGaming = Processing power level in gaming\r\nCasual = processing power level in casual\r\nPro = Processing power level in professional\r\nPrice = price';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nPower = Power needed in watt\r\nGaming = Graphics level in gaming\r\nCasual = Graphics level in casual\r\nPro = Graphics level in professional\r\nPrice = price';
 
 -- Dumping data for table parts.gpu: ~6 rows (approximately)
 /*!40000 ALTER TABLE `gpu` DISABLE KEYS */;
 INSERT INTO `gpu` (`ID`, `Name`, `Vram`, `Power`, `Gaming`, `Casual`, `Pro`, `Price`) VALUES
 	(1, 'ASUS GeForce GTX 750 Ti', '2GB GDDR5', 150, 1, 0, 0, 130),
-	(2, 'ASUS GeForce GTX 960', '4GB GDDR5', 120, 3, 0, 0, 240),
-	(3, 'EVGA GeForce GTX 980', '4GB GDDR5', 165, 6, 0, 0, 510),
-	(4, 'EVGA GeFroce GTX 980 Ti', '6GB GDDR5', 165, 7, 0, 0, 650),
+	(2, 'ASUS GeForce GTX 960', '4GB GDDR5', 120, 2, 0, 0, 240),
+	(3, 'EVGA GeForce GTX 980', '4GB GDDR5', 165, 3, 0, 0, 510),
+	(4, 'EVGA GeFroce GTX 980 Ti', '6GB GDDR5', 165, 4, 0, 0, 650),
 	(5, 'EVGA GeForce GT 740', '2GB GDDR5', 64, 0, 5, 0, 90),
 	(0, 'Integrated Intel HD Graphics', 'N/A', 0, 0, 1, 0, 0);
 /*!40000 ALTER TABLE `gpu` ENABLE KEYS */;
