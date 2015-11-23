@@ -5,6 +5,9 @@ class PagesController < ApplicationController
     
     def specs
         puts "Specs, bitches"
+        if params[:type] == nil
+        	redirect_to :home
+        end
     end
     
     def size
