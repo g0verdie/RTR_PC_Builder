@@ -24,10 +24,16 @@ CREATE TABLE IF NOT EXISTS `case` (
   `Casual` tinyint(4) NOT NULL,
   `Pro` tinyint(4) NOT NULL,
   `Price` smallint(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nForm = 0 (ATX), 1 (Micro ATX), 2 (Mini ITX)\r\nGaming = Processing power level in gaming\r\nCasual = processing power level in casual\r\nPro = Processing power level in professional\r\nPrice = price';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nForm = 0 (ATX Full), 1, (ATX Mid), 2 (Micro ATX), 2 (Mini ITX)\r\nGaming = Processing power level in gaming\r\nCasual = processing power level in casual\r\nPro = Processing power level in professional\r\nPrice = price';
 
 -- Dumping data for table parts.case: ~0 rows (approximately)
 /*!40000 ALTER TABLE `case` DISABLE KEYS */;
+INSERT INTO `case` (`ID`, `Name`, `Form`, `Gaming`, `Casual`, `Pro`, `Price`) VALUES
+	(1, 'Rosewill Rise ATX', 0, 0, 1, 0, 75),
+	(2, 'Thermaltake Chaser Series MK-1', 0, 1, 0, 0, 150),
+	(3, 'Rosewill Blackhawk', 1, 1, 1, 0, 90),
+	(4, 'SilverStone SST-PS07B', 2, 1, 1, 0, 75),
+	(5, 'Raijintek Metis Aluminum', 3, 1, 1, 0, 60);
 /*!40000 ALTER TABLE `case` ENABLE KEYS */;
 
 
@@ -117,8 +123,12 @@ CREATE TABLE IF NOT EXISTS `hdd` (
   `Price` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nCapacity = Size of HDD (GB)\r\nPower = Power needed in watt\r\nStorage = Storage level\r\nGaming = Processing power level in gaming\r\nCasual = processing power level in casual\r\nPro = Processing power level in professional\r\nPrice = price';
 
--- Dumping data for table parts.hdd: ~0 rows (approximately)
+-- Dumping data for table parts.hdd: ~3 rows (approximately)
 /*!40000 ALTER TABLE `hdd` DISABLE KEYS */;
+INSERT INTO `hdd` (`ID`, `Name`, `Capacity`, `Power`, `Storage`, `Gaming`, `Casual`, `Pro`, `Price`) VALUES
+	(1, 'Seagate 7200RPM', 1000, 10, 1, 1, 1, 0, 48),
+	(2, 'Seagate 7200RPM', 2000, 10, 2, 1, 1, 0, 72),
+	(3, 'Seagate 7200RPM', 4000, 10, 3, 1, 0, 0, 116);
 /*!40000 ALTER TABLE `hdd` ENABLE KEYS */;
 
 
@@ -128,20 +138,21 @@ CREATE TABLE IF NOT EXISTS `motherboard` (
   `Name` tinytext NOT NULL,
   `Form` tinyint(4) NOT NULL,
   `Socket` smallint(6) NOT NULL,
+  `Power` smallint(6) NOT NULL,
   `Gaming` tinyint(4) NOT NULL,
   `Casual` tinyint(4) NOT NULL,
   `Pro` tinyint(4) NOT NULL,
   `Price` smallint(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nForm = 0 (ATX), 1 (Micro ATX), 2 (Mini ITX)\r\nSocket = 1150 (Haswell), 1151 (Skylake) or 2011 (Haswell-E/Xeon)\r\nGaming = Processing power level in gaming\r\nCasual = processing power level in casual\r\nPro = Processing power level in professional\r\nPrice = price';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nForm = 0 (ATX), 2 (Micro ATX), 3 (Mini ITX) (skipped 1 because 1 is ATX Mid in case table)\r\nSocket = 1150 (Haswell), 1151 (Skylake) or 2011 (Haswell-E/Xeon)\r\nPower = Power needed in watt\r\nGaming = Processing power level in gaming\r\nCasual = processing power level in casual\r\nPro = Processing power level in professional\r\nPrice = price';
 
 -- Dumping data for table parts.motherboard: ~5 rows (approximately)
 /*!40000 ALTER TABLE `motherboard` DISABLE KEYS */;
-INSERT INTO `motherboard` (`ID`, `Name`, `Form`, `Socket`, `Gaming`, `Casual`, `Pro`, `Price`) VALUES
-	(1, 'MSI Z97 PC Mate', 0, 1150, 1, 0, 0, 80),
-	(2, 'Gigabyte FA-B85M-D3H', 1, 1150, 1, 0, 0, 73),
-	(3, 'ASRock H97M-ITX/ac', 2, 1150, 1, 1, 0, 95),
-	(4, 'MSI B85-G43 Gaming', 0, 1150, 0, 1, 0, 70),
-	(5, 'MSI H81-P33', 1, 1150, 0, 1, 0, 45);
+INSERT INTO `motherboard` (`ID`, `Name`, `Form`, `Socket`, `Power`, `Gaming`, `Casual`, `Pro`, `Price`) VALUES
+	(1, 'MSI Z97 PC Mate', 0, 1150, 50, 1, 0, 0, 80),
+	(2, 'Gigabyte FA-B85M-D3H', 2, 1150, 50, 1, 0, 0, 73),
+	(3, 'ASRock H97M-ITX/ac', 3, 1150, 50, 1, 1, 0, 95),
+	(4, 'MSI B85-G43 Gaming', 0, 1150, 50, 0, 1, 0, 70),
+	(5, 'MSI H81-P33', 2, 1150, 50, 0, 1, 0, 45);
 /*!40000 ALTER TABLE `motherboard` ENABLE KEYS */;
 
 
@@ -157,8 +168,11 @@ CREATE TABLE IF NOT EXISTS `optical` (
   `Price` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nType = 0 (DVD), 1 (BD)\r\nPower = Power needed in watt\r\nGaming = Processing power level in gaming\r\nCasual = processing power level in casual\r\nPro = Processing power level in professional\r\nPrice = price';
 
--- Dumping data for table parts.optical: ~0 rows (approximately)
+-- Dumping data for table parts.optical: ~2 rows (approximately)
 /*!40000 ALTER TABLE `optical` DISABLE KEYS */;
+INSERT INTO `optical` (`ID`, `Name`, `Type`, `Power`, `Gaming`, `Casual`, `Pro`, `Price`) VALUES
+	(1, 'ASUS 24X DVD Burner', 0, 0, 1, 1, 0, 20),
+	(2, 'LG 16X Blu-Ray Burner', 1, 0, 0, 0, 0, 59);
 /*!40000 ALTER TABLE `optical` ENABLE KEYS */;
 
 
@@ -173,8 +187,17 @@ CREATE TABLE IF NOT EXISTS `psu` (
   `Price` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nPower = Maximum power (Watt)\r\nGaming = Processing power level in gaming\r\nCasual = processing power level in casual\r\nPro = Processing power level in professional\r\nPrice = price';
 
--- Dumping data for table parts.psu: ~0 rows (approximately)
+-- Dumping data for table parts.psu: ~8 rows (approximately)
 /*!40000 ALTER TABLE `psu` DISABLE KEYS */;
+INSERT INTO `psu` (`ID`, `Name`, `Power`, `Gaming`, `Casual`, `Pro`, `Price`) VALUES
+	(1, 'Corsair CX430', 430, 1, 1, 1, 43),
+	(2, 'Corsair CX500', 500, 1, 1, 1, 53),
+	(3, 'Corsair CX600', 600, 1, 1, 1, 65),
+	(4, 'Corsair CX750', 750, 1, 1, 1, 70),
+	(5, 'Corsair HX850i', 850, 1, 1, 1, 160),
+	(6, 'Corsair HX1000i', 1000, 1, 1, 1, 190),
+	(7, 'Corsair AX1200i', 1200, 1, 1, 1, 300),
+	(8, 'Corsair AX1500i', 1500, 1, 1, 1, 410);
 /*!40000 ALTER TABLE `psu` ENABLE KEYS */;
 
 
@@ -217,8 +240,14 @@ CREATE TABLE IF NOT EXISTS `ssd` (
   `Price` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nCapacity = Size of SSD (GB)\r\nType = 0 (SATA III), 1 (PCI-E)\r\nPower = Power needed in watt\r\nStorage = Storage level\r\nGaming = Processing power level in gaming\r\nCasual = processing power level in casual\r\nPro = Processing power level in professional\r\nPrice = price';
 
--- Dumping data for table parts.ssd: ~0 rows (approximately)
+-- Dumping data for table parts.ssd: ~5 rows (approximately)
 /*!40000 ALTER TABLE `ssd` DISABLE KEYS */;
+INSERT INTO `ssd` (`ID`, `Name`, `Capacity`, `Type`, `Power`, `Storage`, `Gaming`, `Casual`, `Pro`, `Price`) VALUES
+	(1, 'SanDisk Z400s', 128, 0, 0, 1, 1, 3, 0, 50),
+	(2, 'SanDisk Z400s', 256, 0, 0, 2, 1, 0, 0, 80),
+	(3, 'Samsung 850 Evo', 120, 0, 0, 1, 3, 0, 0, 70),
+	(4, 'Samsung 850 Evo', 250, 0, 0, 2, 3, 0, 0, 97),
+	(5, 'Samsung 850 Evo', 500, 0, 0, 3, 3, 0, 0, 175);
 /*!40000 ALTER TABLE `ssd` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
