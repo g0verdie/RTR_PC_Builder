@@ -35,9 +35,9 @@ gpu:
 ID = Internal ID of this item
 Name = Product name
 Power = Power needed in watt
-Gaming = Processing power level in gaming
-Casual = processing power level in casual
-Pro = Processing power level in professional
+Gaming = Graphics level in gaming
+Casual = Graphics level in casual
+Pro = Graphics level in professional
 Price = price
 
 hdd:
