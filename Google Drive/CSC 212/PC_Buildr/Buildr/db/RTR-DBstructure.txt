@@ -1,0 +1,104 @@
+RTR Database Structure
+Database: parts
+
+All columns are some sort of int (TINYINT, SMALLINT, etc) except for Name (TINYTEXT) and Vram in table gpu (TINYTEXT).
+
+Tables:
+case: 
+ID = Internal ID of this item
+Name = Product name
+Form = 0 (ATX), 1 (Micro ATX), 2 (Mini ITX)
+Gaming = Minimum processing power level in gaming (For example, if you are finding a level 4 case and there is no level 4 case, find level 3, level 2... until you find one) (Same as Casual, Pro, and all processing power levels below)
+Casual = processing power level in casual
+Pro = Processing power level in professional
+Price = price
+
+cooler: 
+ID = Internal ID of this item
+Name = Product name
+Type = 0 (not-K), 1 (Core i5-xxxxK) or 2 (Core i7-xxxxK or xxxxX)
+Price = Price
+
+cpu:
+ID = Internal ID of this item
+Name = Product name
+Socket = 1150 (Haswell), 1151 (Skylake) or 2011 (Haswell-E/Xeon)
+Power = Power needed in watt
+CoolerType = 0 (not-K), 1 (Core i5-xxxxK) or 2 (Core i7-xxxxK or xxxxX)
+RamType = 0 (DDR3), 1 (DDR4)
+Gaming = Processing power level in gaming
+Casual = processing power level in casual
+Pro = Processing power level in professional
+Price = price
+
+gpu:
+ID = Internal ID of this item
+Name = Product name
+Power = Power needed in watt
+Gaming = Processing power level in gaming
+Casual = processing power level in casual
+Pro = Processing power level in professional
+Price = price
+
+hdd:
+ID = Internal ID of this item
+Name = Product name
+Capacity = Size of HDD (GB)
+Power = Power needed in watt
+Storage = Storage level
+Gaming = Processing power level in gaming
+Casual = processing power level in casual
+Pro = Processing power level in professional
+Price = price
+
+motherboard:
+ID = Internal ID of this item
+Name = Product name
+Form = 0 (ATX), 1 (Micro ATX), 2 (Mini ITX)
+Socket = 1150 (Haswell), 1151 (Skylake) or 2011 (Haswell-E/Xeon)
+Gaming = Processing power level in gaming
+Casual = processing power level in casual
+Pro = Processing power level in professional
+Price = price
+
+optical:
+ID = Internal ID of this item
+Name = Product name
+Type = 0 (DVD), 1 (BD)
+Power = Power needed in watt
+Gaming = Processing power level in gaming
+Casual = processing power level in casual
+Pro = Processing power level in professional
+Price = price
+
+psu:
+ID = Internal ID of this item
+Name = Product name
+Power = Maximum power (Watt)
+Gaming = Processing power level in gaming
+Casual = processing power level in casual
+Pro = Processing power level in professional
+Price = price
+
+ram:
+ID = Internal ID of this item
+Name = Product name
+Capacity = Size of ram (GB)
+Type = 0 (DDR3), 1 (DDR4)
+Power = Power needed in watt
+Gaming = Processing power level in gaming
+Casual = processing power level in casual
+Pro = Processing power level in professional
+Price = price
+
+ssd:
+ID = Internal ID of this item
+Name = Product name
+Capacity = Size of SSD (GB)
+Type = 0 (SATA III), 1 (PCI-E)
+Power = Power needed in watt
+Storage = Storage level
+Gaming = Processing power level in gaming
+Casual = processing power level in casual
+Pro = Processing power level in professional
+Price = price
