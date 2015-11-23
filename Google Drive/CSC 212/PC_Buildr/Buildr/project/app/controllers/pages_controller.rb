@@ -10,4 +10,8 @@ class PagesController < ApplicationController
     def size
         puts "Size, bitches"
     end
+    
+    def results
+        puts "Results, bitches"
+    end
 end
