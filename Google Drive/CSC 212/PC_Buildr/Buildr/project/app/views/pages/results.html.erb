@@ -4,7 +4,10 @@
 <% graphics = (price * params[:graphics].to_f)/100 %>
 <% storage = (price * params[:storage].to_f)/100 %>
 <% size = params[:case] %>
-<% DB.run File.read("db.sql")%>
+
+<% DB = Sequel.sqlite %>
+<% DB.run File.read('/db.sql')%>
+
 <% cpu = DB[:cpu].max(:Price).where(:Price => 0..processor) %>
 <% gpu = DB[:gpu].max(:Price).where(:Price => 0..graphics) %>
 <% ssd  = DB[:ssd].max(:Price).where(:Price=> 0..storage) %>
