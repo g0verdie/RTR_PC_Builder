@@ -14,6 +14,7 @@
         <div class = "col-md-8 col-md-offset-2 content">
             <form action="size.html">
                 <div class="row">
+                    <input id="type-input" type="hidden" name="type" value = <%= params[:type] %> />
                     <div class="col-sm-4">
                         <div class = "row">
                             <div class="col-sm-8 col-sm-offset-2">
@@ -115,6 +116,7 @@
         });
     });
 </script>
+<script>
             slidechange: function(event, ui) {
                 var id = this.id;
                 if(id=='slider3') {
@@ -128,6 +130,7 @@
                     $(' .desc2').show();
                     $(' .desc3').hide();
                     $(' .desc1').hide();
+    </script>
 <script>
     $(document).ready(function(){
         $('.slider').slider().on({
