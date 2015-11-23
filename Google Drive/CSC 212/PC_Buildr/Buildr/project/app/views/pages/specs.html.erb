@@ -1,5 +1,5 @@
 <% puts "TYPE BITCH " + params[:type].to_s %>
-<% if params[:type] == nil %> #if type is not present, go back to previous page
+<% if params[:type] == nil %>
         <%= session[:return_to] = "/home.html" %>
         <%= puts 'you suck, type is nil' %>
        <% end %>
