@@ -7,7 +7,7 @@ Tables:
 case: 
 ID = Internal ID of this item
 Name = Product name
-Form = 0 (ATX), 1 (Micro ATX), 2 (Mini ITX)
+Form = 0 (ATX), 1 (ATX Mid), 2 (Micro ATX), 3 (Mini ITX)
 Gaming = Minimum processing power level in gaming (For example, if you are finding a level 4 case and there is no level 4 case, find level 3, level 2... until you find one) (Same as Casual, Pro, and all processing power levels below)
 Casual = processing power level in casual
 Pro = Processing power level in professional
@@ -54,8 +54,9 @@ Price = price
 motherboard:
 ID = Internal ID of this item
 Name = Product name
-Form = 0 (ATX), 1 (Micro ATX), 2 (Mini ITX)
+Form = 0 (ATX), 2 (Micro ATX), 3 (Mini ITX) (Skipped 1 because 1 is ATX Mid in case table which also uses standard ATX board)
 Socket = 1150 (Haswell), 1151 (Skylake) or 2011 (Haswell-E/Xeon)
+Power = Power needed in watt
 Gaming = Processing power level in gaming
 Casual = processing power level in casual
 Pro = Processing power level in professional
