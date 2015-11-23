@@ -1,10 +1,10 @@
-<h1>PC Buildr Alpha</h1>
+<h1><a href = "/home.html"> PC Buildr Alpha</a></h1>
 <% price = params[:price].to_i%>
 <% processor = (price * params[:processor].to_f)/100 %>
 <% graphics = (price * params[:graphics].to_f)/100 %>
 <% storage = (price * params[:storage].to_f)/100 %>
 <% size = params[:case] %>
-<% DB.run File.read('RTR_PC_Builder/Google Drive/CSC 212/PC_Buildr/Buildr/db-updated/dq.sql')%>
+<% DB.run File.read('/db.sql')%>
 <% cpu = DB[:cpu].max(:Price).where(:Price => 0..processor) %>
 <% gpu = DB[:gpu].max(:Price).where(:Price => 0..graphics) %>
 <% ssd  = DB[:ssd].max(:Price).where(:Price=> 0..storage) %>
