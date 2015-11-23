@@ -1,2 +1,61 @@
 <h1>Size bois</h1>
 <h2 class="text-center">Size matters</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 content">
+            <div class="row">
+                <form>
+                    <label> 
+                        <div class="col-md-3 option">
+                            <input type='radio' name='answer_id' value='313'>
+                            <h4 class="text-center">Mini ITX</h4>
+                            <img src="..." alt="..." class="img-rounded">
+                            <p>BLAH BLAH BLAH SMALL</p>
+                        </div>
+                    </label>
+                    <label> 
+                        <div class="col-md-3 option">
+                            <input type='radio' name='answer_id' value='313'>
+                            <h4 class="text-center">Micro ATX</h4>
+                            <img src="..." alt="..." class="img-rounded">
+                            <p>BLAH BLAH BLAH STILL SMALL</p>
+                        </div>
+                    </label>
+                    <label> 
+                        <div class="col-md-3 option">
+                            <input type='radio' name='answer_id' value='313'>
+                            <h4 class="text-center">ATX Mid</h4>
+                            <img src="..." alt="..." class="img-rounded">
+                            <p>BLAH BLAH BLAH MEDIUM</p>
+                        </div>
+                    </label>
+                    <label > 
+                        <div class="col-md-3 option">
+                            <input type='radio' name='answer_id' value='313'>
+                            <h4 class="text-center">ATX Full</h4>
+                            <img src="..." alt="..." class="img-rounded">
+                            <p>BLAH BLAH BLAH REGULAR SIZE</p>
+                        </div>
+                    </label>
+                </form>
+            </div>
+            <div class-"row">
+                <p>SIZE COMPARISON HERE</p>
+            </div>
+            <div class="row buttons">
+                <a href="home.html" class="col-md-1 col-md-offset-1"><button class="btn btn-default">BACK</button></a>
+                <a href="size.html" class="col-md-1 col-md-offset-8"><button class="btn btn-default">NEXT</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $('input:radio').change(function(){
+            var $this = $(this);
+            // Only remove the class in the specific `box` that contains the radio
+            $('.highlight').removeClass('highlight');
+            $this.closest('div').addClass('highlight');
+        });
+    });
+</script>
