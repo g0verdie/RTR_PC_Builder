@@ -1,13 +1,4 @@
-<% puts "TYPE BITCH " + params[:type].to_s %>
-<% if params[:type] == nil %>
-        <%= session[:return_to] = "/home.html" %>
-        <%= puts 'you suck, type is nil' %>
-       <% end %>
-<% price =0 %>
-<% gfx = 0 %>
-<% storage = 0 %>
-<% cpu = 0 %>
-<h1>PC Buildr Alpha</h1>
+<h1><a href = "/home.html"> PC Buildr Alpha</a></h1>
 <h2 class="text-center">Customize your build</h2>
 <div class="container-fluid">
     <div class="row">
@@ -79,7 +70,7 @@
                         <div id="slider3" class="slider"></div>
                         <div class="desc3">
                             <p>
-                                Your storage space is where all your files are kept. All gaming computers come with a solid state drive (ssd) for your operating system (windows for example) for super fast speeds and can additionally add hard drives (HDs) for more storage space. For reference, we are using songs to scope size. 250 3 minute songs take up 1gb of space. On your current storage emphasis, you have (insert description here). 
+                                Your storage space is where all your files are kept. All gaming computers come with a solid state drive (SSD) for your operating system (Windows for example) for super fast speeds and can additionally add hard drives (HDD) for more storage space. For reference, we are using songs to scope size. 250 3 minute songs take up 1gb of space. On your current storage emphasis, you have (insert description here). 
                             </p>
                         </div>
                     </div>
