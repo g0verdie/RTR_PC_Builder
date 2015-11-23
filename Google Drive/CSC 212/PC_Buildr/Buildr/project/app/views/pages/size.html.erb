@@ -4,10 +4,15 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2 content">
             <div class="row">
-                <form>
-                    <label> 
+                <form action="results.html">
+                    <label>
+                    <input id="type-input" type="hidden" name="type" value = <%= params[:type] %> />
+                    <input id="price-input" type="hidden" name="price" value = <%= params[:price] %> />
+                    <input id="processor-input" type="hidden" name="processor" value = <%= params[:processor] %> /> 
+                    <input id="graphics-input" type="hidden" name="graphics" value = <%= params[:graphics] %> />
+                    <input id="storage-input" type="hidden" name="storage" value = <%= params[:storage] %> />
                         <div class="col-sm-3 option">
-                            <input type='radio' name='case' value='mini'>
+                            <input id='case-input' type='radio' name='case' value='mini'>
                             <h4 class="text-center">Mini ITX</h4>
                             <img src="http://cdn5.thinkcomputers.org/wp-content/uploads/2014/12/cooltek-umx1-1.jpg" alt="..." class="center">
                             <p>BLAH BLAH BLAH SMALL</p>
@@ -15,7 +20,7 @@
                     </label>
                     <label> 
                         <div class="col-sm-3 option">
-                            <input type='radio' name='case' value='micro'>
+                            <input id='case-input' type='radio' name='case' value='micro'>
                             <h4 class="text-center">Micro ATX</h4>
                             <img src="https://files.pccasegear.com/images/PARV-S20-BKRED-th.jpg" alt="..." class="center">
                             <p>BLAH BLAH BLAH STILL SMALL</p>
@@ -23,7 +28,7 @@
                     </label>
                     <label> 
                         <div class="col-sm-3 option">
-                            <input type='radio' name='case' value='mid'>
+                            <input id='case-input' type='radio' name='case' value='mid'>
                             <h4 class="text-center">ATX Mid</h4>
                             <img src="https://cdn.pcpartpicker.com/static/forever/images/product/c667d5e741484f8dab12c1c71c2dd155.med.256p.jpg" alt="..." class="center">
                             <p>BLAH BLAH BLAH MEDIUM</p>
@@ -31,21 +36,22 @@
                     </label>
                     <label > 
                         <div class="col-sm-3 option">
-                            <input type='radio' name='case' value='full'>
+                            <input id='case-input' type='radio' name='case' value='full'>
                             <h4 class="text-center">ATX Full</h4>
                             <img src="http://guideimg.alibaba.com/images/shop/101/12/24/1/nzxt-phantom-crafted-series-atx-full-tower-steel-chassis-red_2193531.jpg" alt="..." class="center">
                             <p>BLAH BLAH BLAH REGULAR SIZE</p>
                         </div>
                     </label>
-                </form>
+                
             </div>
             <div class-"row">
                 <img src="http://www.buildcomputers.net/images/computer-case-sizes.jpg" class="center">
             </div>
             <div class="row buttons">
                 <a href="specs.html?type=<%= params[:type].to_s%>" class="col-sm-1 col-sm-offset-1"><button class="btn btn-default">BACK</button></a>
-                <a href="results.html" class="col-sm-1 col-sm-offset-8"><button class="btn btn-default">NEXT</button></a>
+                <a type="submit" class="col-sm-1 col-sm-offset-8"><button class="btn btn-default">NEXT</button></a>
             </div>
+            </form>
         </div>
     </div>
 </div>
