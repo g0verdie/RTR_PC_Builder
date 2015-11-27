@@ -4,12 +4,6 @@
 <% graphics = (price * params[:graphics].to_f)/100 %>
 <% storage = (price * params[:storage].to_f)/100 %>
 <% size = params[:case] %>
-<!-- DASH DASH BRACKET NIGGA-->
-<% DB.run File.read('db.sql')%>
-<% cpu = DB[:cpu].max(:Price).where(:Price => 0..processor) %>
-<% gpu = DB[:gpu].max(:Price).where(:Price => 0..graphics) %>
-<% ssd  = DB[:ssd].max(:Price).where(:Price=> 0..storage) %>
-<% cs = DB[:size].max(:Price).where(:Price => 0..size) %>
 <h2 class="text-center">The Results Are In!</h2>
 <div class="container-fluid">
     <div class="row">
@@ -17,15 +11,15 @@
             <div class="row">
                 <div class="col-sm-3">
                     <h4 class="text-center">CPU:</h4>
-                    <p class="text-center"> <%= cpu.get(:Name) %></p>
+                    <p class="text-center"> cpu specs here</p>
                     <h4 class="text-center">RAM:</h4>
                     <p class="text-center"> ram specs here</p>
                     <h4 class="text-center">Memory:</h4>
-                    <p class="text-center"> <%= gpu.get(:Name) %></p>
+                    <p class="text-center"> gpu specs here</p>
                     <h4 class="text-center">Case:</h4>
-                    <p class="text-center"><%= cs.get(:Name) %></p>
+                    <p class="text-center"> cases here </p>
                     <h4 class="text-center">GPU:</h4>
-                    <p class="text-center"><%= gpu.get(:Name) %></p>
+                    <p class="text-center"> gpu here</p>
                     <h4 class="text-center">Board:</h4>
                     <p class="text-center">board specs here</p>
                     <h4 class="text-center">PSU:</h4>
