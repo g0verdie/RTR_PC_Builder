@@ -1,5 +1,16 @@
 <h1><a href = "/home.html"> PC Buildr Alpha</a></h1>
 <h2 class="text-center">Customize your build</h2>
+<% if params[:type] == "casual"
+        $start_price = 400 
+        $end_price = 1000
+    elsif params[:type] == "gaming"
+    $start_price = 600
+    $end_price = 4000
+else
+    $start_price = 1500
+    $end_price = 25000
+    end %>
+<% $increment = ($end_price - $start_price) / 10 %>
 <div class="container-fluid">
     <div class="row">
         <div class = "col-md-8 col-md-offset-2 content">
@@ -14,6 +25,7 @@
                                 <div id="sidebar"></div>
                             </div>
                             <div class="col-sm-4 price">
+                                <!--
                                 <p>
                                     $1600
                                 </p>
@@ -44,6 +56,11 @@
                                 <p>
                                     $700
                                 </p>
+                                -->
+                                <% while $start_price <= $end_price do %>
+                                <p><%= $start_price%></p>
+                                <% $start_price += $increment %>
+                                <% end %>
                             </div>
                         </div>
                     </div>
