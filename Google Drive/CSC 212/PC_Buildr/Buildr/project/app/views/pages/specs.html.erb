@@ -10,6 +10,7 @@ else
     $start_price = 1500
     $end_price = 25000
     end %>
+<% $iterator = $start_price %>
 <% $increment = ($end_price - $start_price) / 10 %>
 <div class="container-fluid">
     <div class="row">
@@ -57,9 +58,9 @@ else
                                     $700
                                 </p>
                                 -->
-                                <% while $start_price <= $end_price do %>
-                                <p><%= $start_price%></p>
-                                <% $start_price += $increment %>
+                                <% while $iterator <= $end_price do %>
+                                <p><%= $iterator%></p>
+                                <% $iterator += $increment %>
                                 <% end %>
                             </div>
                         </div>
@@ -104,8 +105,8 @@ else
 <script>
     $(document).ready(function(){
        $( "#sidebar" ).slider({
-        	min: 500,
-        	max:3000,
+        	min: <%= $start_price %>,
+        	max: <%= $end_price %>,
         	step:50,
         	animate: true,
         	orientation: "vertical",
