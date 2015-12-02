@@ -3,8 +3,8 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-8 col-md-offset-2 content">
-            <div class="row">
-                <form action="results.html">
+            <form action="results.html">
+                <div class="row padd">
                     <label>
                     <input id="type-input" type="hidden" name="type" value = <%= params[:type] %> />
                     <input id="price-input" type="hidden" name="price" value = <%= params[:price] %> />
@@ -42,15 +42,14 @@
                             <p>Towering, well built case, used in high end gaming and professional builds.  Plenty of space for extra hardware and future upgrades.</p>
                         </div>
                     </label>
-                
-            </div>
-            <div class-"row">
-                <img src="http://www.buildcomputers.net/images/computer-case-sizes.jpg" class="center">
-            </div>
-            <div class="row buttons">
-                <a href="specs.html?type=<%= params[:type].to_s%>" class="col-sm-1 col-sm-offset-1"><button class="btn btn-default">BACK</button></a>
-                <a type="submit" class="col-sm-1 col-sm-offset-8"><button class="btn btn-default">NEXT</button></a>
-            </div>
+                </div>
+                <div class-"row">
+                    <img src="http://www.buildcomputers.net/images/computer-case-sizes.jpg" class="center bump">
+                </div>
+                <div class="row buttons">
+                    <a href="specs.html?type=<%= params[:type].to_s%>" class="col-sm-1 col-sm-offset-1"><button class="btn btn-default">BACK</button></a>
+                    <a type="submit" class="col-sm-1 col-sm-offset-8"><button class="btn btn-default">NEXT</button></a>
+                </div>
             </form>
         </div>
     </div>
