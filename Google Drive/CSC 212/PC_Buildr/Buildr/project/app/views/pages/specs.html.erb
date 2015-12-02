@@ -37,7 +37,8 @@ else
                         <h3>Move the sliders below to adjust your computer's specs to your liking</h3>
                         <h4>Processor</h4>
                         <input id="processor-input" type="hidden" name="processor" />
-                        <div id="slider1" class="slider"></div>
+                        <div id="slider1" class="slider">33</div>
+                        <span class="value hide">0</span>
                         <div class="arrow-up desc1 a1"></div>
                         <div class="desc1 desc">
                             <p class="nobottom">
@@ -47,7 +48,8 @@ else
                         <% if params[:type] != "casual" %>
                             <h4>Graphics</h4>
                             <input id="graphics-input" type="hidden" name="graphics" />
-                            <div id="slider2" class="slider"></div>
+                            <div id="slider2" class="slider">33</div>
+                            <span class="value hide">0</span>
                             <div class="arrow-up desc2 a2"></div>
                             <div class="desc2 desc">
                                 <p class="nobottom">
@@ -57,7 +59,8 @@ else
                         <% end %>
                         <h4>Storage</h4>
                         <input id="storage-input" type="hidden" name="storage" />
-                        <div id="slider3" class="slider"></div>
+                        <div id="slider3" class="slider">33</div>
+                        <span class="value hide">0</span>
                         <div class="arrow-up desc3 a3"></div>
                         <div class="desc3 desc">
                             <p class="nobottom">
@@ -123,18 +126,21 @@ else
          slide: function(event, ui) {
                 var id = this.id;
                 if(id=='slider1') {
+                    $(' .a1 ').css({left: $(' #slider1>a ').position().left+10});
                     $('#processor-input').val(ui.value);
                     $(' .desc1').show();
                     $(' .desc2').hide();
                     $(' .desc3').hide();
                 }
                 if(id=='slider3') {
+                    $(' .a3 ').css({left: $(' #slider3>a ').position().left+10});
                     $('#storage-input').val(ui.value);
                     $(' .desc3').show();
                     $(' .desc2').hide();
                     $(' .desc1').hide();
                 }
                 if(id=='slider2') {
+                    $(' .a2 ').css({left: $(' #slider2>a ').position().left+10});
                     $('#graphics-input').val(ui.value);
                     $(' .desc2').show();
                     $(' .desc3').hide();
@@ -146,37 +152,78 @@ else
 </script>
 <script>
     $(document).ready(function(){
-        $(' .slider ').linkedSliders();
+        var sliders = $(" .slider ");
+        var availableTotal = 100;
+        console.log(sliders.length);
+        console.log(availableTotal);
+        sliders.each(function() {
+            var init_value = parseInt($(this).text());
+            $(this).siblings('.value').text(init_value);
+            $(this).empty().slider({
+                value: init_value,
+                min: 0,
+                max: availableTotal,
+                range: "max",
+                step: 2,
+                animate: 0,
+                slide: function(event, ui) {
+                    // Update display to current value
+                    $(this).siblings('.value').text(ui.value);
+                    // Get current total
+                    var total = 0;
+                    sliders.not(this).each(function() {
+                        total += $(this).slider("option", "value");
+                    });
+                    // Need to do this because apparently jQ UI
+                    // does not update value until this event completes
+                    total += ui.value;
+                    var delta = availableTotal - total;
+                    // Update each slider
+                    sliders.not(this).each(function() {
+                        var t = $(this),
+                            value = t.slider("option", "value");
+                        var new_value = value + (delta/2);
+                        if (new_value < 0 || ui.value == 100) 
+                            new_value = 0;
+                        if (new_value > 100) 
+                            new_value = 100;
+                        t.siblings('.value').text(new_value);
+                        t.slider('value', new_value);
+                    });
+                    $('#processor-input').val($( "#slider1" ).slider( "value" ));
+                    $('#storage-input').val($( "#slider3" ).slider( "value" ));
+                    $('#graphics-input').val($( "#slider2" ).slider( "value" ));
+                    $(' .a3 ').css({left: $(' #slider3>a ').position().left+10});
+                    $(' .a2 ').css({left: $(' #slider2>a ').position().left+10});
+                    $(' .a1 ').css({left: $(' #slider1>a ').position().left+10});
+                    var id = this.id;
+                    if(id=='slider2') {
+                        $('#graphics-input').val(ui.value);
+                        $(' .a2 ').css({left: $(' #slider2>a ').position().left+10});
+                    } 
+                    if(id=='slider1') {
+                        $('#processor-input').val(ui.value);
+                        $(' .a1 ').css({left: $(' #slider1>a ').position().left+10});
+                    }
+                    if(id=='slider3') {
+                        $('#storage-input').val(ui.value);
+                        $(' .a3 ').css({left: $(' #slider3>a ').position().left+10});
+                    }
+                }
+            });
+        });
     });
 </script>
 <script>
-    $(' #slider1 ').slider({
-        slide: function( event, ui ) {
-            $(' .a1 ').css({left: $(' #slider1>a ').position().left+10});
-        }
-    });
-    $(' #slider2 ').slider({
-        slide: function( event, ui ) {
-            $(' .a2 ').css({left: $(' #slider2>a ').position().left+10});
-        }
-    });
-    $(' #slider3 ').slider({
-        slide: function( event, ui ) {
-            $(' .a3 ').css({left: $(' #slider3>a ').position().left+10});
-        }
-    });
     $(document).ready(function(){
         $(' .a1 ').css({left: $(' #slider1>a ').position().left+10});
-        //   $(' .slider>a ').linkedSliders();
     });
     <% if params[:type] != "casual" %>
         $(document).ready(function(){
             $(' .a2 ').css({left: $(' #slider2>a ').position().left+10});
-            //   $(' .slider>a ').linkedSliders();
         });
     <% end %>
     $(document).ready(function(){
         $(' .a3 ').css({left: $(' #slider3>a ').position().left+10});
-        //   $(' .slider>a ').linkedSliders();
     });
 </script>
