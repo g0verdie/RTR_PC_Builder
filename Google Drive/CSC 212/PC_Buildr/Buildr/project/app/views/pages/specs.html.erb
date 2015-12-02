@@ -121,7 +121,9 @@ else
         $('#price-input').val($( "#sidebar" ).slider( "value" ));
         $('#processor-input').val($( "#slider1" ).slider( "value" ));
         $('#storage-input').val($( "#slider3" ).slider( "value" ));
-        $('#graphics-input').val($( "#slider2" ).slider( "value" ));
+        <% if params[:type] != "casual" %>
+            $('#graphics-input').val($( "#slider2" ).slider( "value" ));
+        <% end %>
         $('.slider').slider().on({
          slide: function(event, ui) {
                 var id = this.id;
@@ -192,9 +194,13 @@ else
                     });
                     $('#processor-input').val($( "#slider1" ).slider( "value" ));
                     $('#storage-input').val($( "#slider3" ).slider( "value" ));
-                    $('#graphics-input').val($( "#slider2" ).slider( "value" ));
+                    <% if params[:type] != "casual" %>
+                        $('#graphics-input').val($( "#slider2" ).slider( "value" ));
+                    <% end %>
                     $(' .a3 ').css({left: $(' #slider3>a ').position().left+10});
-                    $(' .a2 ').css({left: $(' #slider2>a ').position().left+10});
+                    <% if params[:type] != "casual" %>
+                        $(' .a2 ').css({left: $(' #slider2>a ').position().left+10});
+                    <% end %>
                     $(' .a1 ').css({left: $(' #slider1>a ').position().left+10});
                     var id = this.id;
                     if(id=='slider2') {
