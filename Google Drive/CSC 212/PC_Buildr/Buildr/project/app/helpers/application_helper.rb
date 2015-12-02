@@ -1,5 +1,5 @@
 require 'newegg'
-require 'Sequel'
+require 'sequel'
 module ApplicationHelper
 	$store = Newegg.stores[0]
 	$category = Newegg.categories($store.store_id)
