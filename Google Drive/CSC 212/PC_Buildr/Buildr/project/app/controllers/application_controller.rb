@@ -49,3 +49,7 @@ def query
     		return $cpu, $gfx,$stor,$case,$board,$psu,$ram
         end
  end
+ def getImage(type,name)
+    $image = $database[type]
+    return $image.where(:name => name).select(:image).max(:image)
+ end
