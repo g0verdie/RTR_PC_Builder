@@ -1,12 +1,13 @@
 require 'newegg'
 require 'sequel'
+require 'rails'
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   helper_method :query
   $database = Sequel.sqlite('database.sqlite3')
-  $database.run File.read('/Users/ferozrauf/Downloads/RTR_PC_Builder/Google Drive/CSC 212/PC_Buildr/Buildr/db-updated/db.sql')
+  $database.run File.read(Rails.root.join('db','db.sql').to_s)
 def query
             $price = params[:price].to_i * 0.8
             $original_price = $price

@@ -1,12 +1,13 @@
 require 'newegg'
 require 'sequel'
+require 'rails'
 module ApplicationHelper
 	$store = Newegg.stores[0]
 	$category = Newegg.categories($store.store_id)
 	#puts $category[0].node_id
 	#puts Newegg.navigate(0,343,7671)
 	  $database = Sequel.sqlite('database.sqlite3')
-  	$database.run File.read('/Users/ferozrauf/Downloads/RTR_PC_Builder/Google Drive/CSC 212/PC_Buildr/Buildr/db-updated/db.sql')
+  	$database.run File.read(Rails.root.join('db','db.sql').to_s)
   	item = $database[:cpu]
     puts item.where(:price => item.where(:price => 0..100).max(:price)).select(:name).max(:name)
 	def ApplicationHelper.getCPU(price)
