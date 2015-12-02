@@ -26,38 +26,6 @@ else
                                 <div id="sidebar"></div>
                             </div>
                             <div class="col-sm-4 price">
-                                <!--
-                                <p>
-                                    $1600
-                                </p>
-                                <p>
-                                    $1500
-                                </p>
-                                <p>
-                                    $1400
-                                </p>
-                                <p>
-                                    $1300
-                                </p>
-                                <p>
-                                    $1200
-                                </p>
-                                <p>
-                                    $1100
-                                </p>
-                                <p>
-                                    $1000
-                                </p>
-                                <p>
-                                    $900
-                                </p>
-                                <p>
-                                    $800
-                                </p>
-                                <p>
-                                    $700
-                                </p>
-                                -->
                                 <% while $iterator >= $start_price do %>
                                 <p><%= $iterator%></p>
                                 <% $iterator -= $increment %>
@@ -70,24 +38,29 @@ else
                         <h4>Processor</h4>
                         <input id="processor-input" type="hidden" name="processor" />
                         <div id="slider1" class="slider"></div>
-                        <div class="desc1">
-                            <p>
+                        <div class="arrow-up desc1 a1"></div>
+                        <div class="desc1 desc">
+                            <p class="nobottom">
                                 Your central processing unit, or CPU, is responsible for completing tasks that you desire and running programs. By increasing the emphasis on processing (sliding the bar to the right), you are improving the speed and amount of tasks your computer can process. At this emphasis, you will be able to (insert description here). 
                             </p>
                         </div>
-                        <h4>Graphics</h4>
-                        <input id="graphics-input" type="hidden" name="graphics" />
-                        <div id="slider2" class="slider"></div>
-                        <div class="desc2">
-                            <p>
-                                In today’s world of computers, it is required to provide 3D realism. Graphics is what provides this realism. By increasing the emphasis on graphics (sliding the bar to the right), you are improving the rate at which this realism is displayed. The standard of today is  60 frames per second (FPS). At this emphasis, you will be able to play (insert game here) at 60fps. 
-                            </p>
-                        </div>
+                        <% if params[:type] != "casual" %>
+                            <h4>Graphics</h4>
+                            <input id="graphics-input" type="hidden" name="graphics" />
+                            <div id="slider2" class="slider"></div>
+                            <div class="arrow-up desc2 a2"></div>
+                            <div class="desc2 desc">
+                                <p class="nobottom">
+                                    In today’s world of computers, it is required to provide 3D realism. Graphics is what provides this realism. By increasing the emphasis on graphics (sliding the bar to the right), you are improving the rate at which this realism is displayed. The standard of today is  60 frames per second (FPS). At this emphasis, you will be able to play (insert game here) at 60fps. 
+                                </p>
+                            </div>
+                        <% end %>
                         <h4>Storage</h4>
                         <input id="storage-input" type="hidden" name="storage" />
                         <div id="slider3" class="slider"></div>
-                        <div class="desc3">
-                            <p>
+                        <div class="arrow-up desc3 a3"></div>
+                        <div class="desc3 desc">
+                            <p class="nobottom">
                                 Your storage space is where all your files are kept. All gaming computers come with a solid state drive (SSD) for your operating system (Windows for example) for super fast speeds and can additionally add hard drives (HDD) for more storage space. For reference, we are using songs to scope size. 250 3 minute songs take up 1gb of space. On your current storage emphasis, you have (insert description here). 
                             </p>
                         </div>
@@ -143,7 +116,7 @@ else
 <script>
     $(document).ready(function(){
         $('.slider').slider().on({
-         slidechange: function(event, ui) {
+         slide: function(event, ui) {
                 var id = this.id;
                 if(id=='slider1') {
                     $('#processor-input').val(ui.value);
@@ -169,6 +142,37 @@ else
 </script>
 <script>
     $(document).ready(function(){
-          $(' .slider ').linkedSliders();
+        //   $(' .slider ').linkedSliders();
+    });
+</script>
+<script>
+    $(' #slider1 ').slider({
+        slide: function( event, ui ) {
+            $(' .a1 ').css({left: $(' #slider1>a ').position().left+10});
+        }
+    });
+    $(' #slider2 ').slider({
+        slide: function( event, ui ) {
+            $(' .a2 ').css({left: $(' #slider2>a ').position().left+10});
+        }
+    });
+    $(' #slider3 ').slider({
+        slide: function( event, ui ) {
+            $(' .a3 ').css({left: $(' #slider3>a ').position().left+10});
+        }
+    });
+    $(document).ready(function(){
+        $(' .a1 ').css({left: $(' #slider1>a ').position().left+10});
+        //   $(' .slider>a ').linkedSliders();
+    });
+    <% if params[:type] != "casual" %>
+        $(document).ready(function(){
+            $(' .a2 ').css({left: $(' #slider2>a ').position().left+10});
+            //   $(' .slider>a ').linkedSliders();
+        });
+    <% end %>
+    $(document).ready(function(){
+        $(' .a3 ').css({left: $(' #slider3>a ').position().left+10});
+        //   $(' .slider>a ').linkedSliders();
     });
 </script>
