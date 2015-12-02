@@ -95,7 +95,7 @@ else
 <script>
     $(document).ready(function(){
        $( ".slider" ).slider({
-        	min: 1,
+        	min: 20,
         	max:100,
         	step:1,
             animate: true,
@@ -115,6 +115,10 @@ else
 </script>
 <script>
     $(document).ready(function(){
+        $('#price-input').val($( "#sidebar" ).slider( "value" ));
+        $('#processor-input').val($( "#slider1" ).slider( "value" ));
+        $('#storage-input').val($( "#slider3" ).slider( "value" ));
+        $('#graphics-input').val($( "#slider2" ).slider( "value" ));
         $('.slider').slider().on({
          slide: function(event, ui) {
                 var id = this.id;
