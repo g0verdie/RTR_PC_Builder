@@ -19,7 +19,7 @@ class PagesController < ApplicationController
     
     def results
         puts "Results, bitches"
-        if params[:type] == nil
+        if params[:type] == nil || params[:case] == nil
             redirect_to :home
         end
     end
