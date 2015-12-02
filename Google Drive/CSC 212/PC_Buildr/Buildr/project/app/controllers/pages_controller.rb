@@ -22,7 +22,7 @@ class PagesController < ApplicationController
         if params[:type] == nil
             redirect_to :home
         elsif params[:case] == nil
-            redirect_to :size
+            redirect_to :back
         end
     end
 end
