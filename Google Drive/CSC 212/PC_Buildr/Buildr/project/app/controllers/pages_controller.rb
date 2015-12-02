@@ -21,6 +21,8 @@ class PagesController < ApplicationController
         puts "Results, bitches"
         if params[:type] == nil
             redirect_to :home
+        elsif params[:case] == nil
+            redirect_to :back
         end
     end
 end
