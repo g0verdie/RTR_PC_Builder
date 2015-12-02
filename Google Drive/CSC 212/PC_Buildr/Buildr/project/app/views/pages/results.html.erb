@@ -6,6 +6,7 @@
 <% $storage = ($price * params[:storage].to_f)/100 %>
 <% $size = params[:case] %>
 -->
+<% $cpu, $gfx, $stor, $case, $board, $psu, $ram = self.query %>
 <h2 class="text-center">The Results Are In!</h2>
 <div class="container-fluid">
     <div class="row">
@@ -13,15 +14,15 @@
             <div class="row">
                 <div class="col-sm-3">
                     <h4 class="text-center">CPU:</h4>
-                    <p class="text-center"> <!--cpu specs here--> <%= query %> </p>
+                    <p class="text-center"> <!--cpu specs here--> <%= $cpu %> </p>
                     <h4 class="text-center">RAM:</h4>
                     <p class="text-center"> ram specs here</p>
                     <h4 class="text-center">Memory:</h4>
-                    <p class="text-center"> gpu specs here</p>
+                    <p class="text-center"> <%= $stor %></p>
                     <h4 class="text-center">Case:</h4>
                     <p class="text-center"> cases here </p>
                     <h4 class="text-center">GPU:</h4>
-                    <p class="text-center"> gpu here</p>
+                    <p class="text-center"> <%= $gfx %></p>
                     <h4 class="text-center">Board:</h4>
                     <p class="text-center">board specs here</p>
                     <h4 class="text-center">PSU:</h4>

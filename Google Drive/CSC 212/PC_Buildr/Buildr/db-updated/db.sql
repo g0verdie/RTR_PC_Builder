@@ -11,8 +11,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Dumping database structure for parts
-CREATE DATABASE IF NOT EXISTS `parts` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `parts`;
+
 
 
 -- Dumping structure for table parts.case
@@ -24,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `case` (
   `Casual` tinyint(4) NOT NULL,
   `Pro` tinyint(4) NOT NULL,
   `Price` smallint(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nForm = 0 (ATX Full), 1, (ATX Mid), 2 (Micro ATX), 2 (Mini ITX)\r\nGaming = Processing power level in gaming\r\nCasual = processing power level in casual\r\nPro = Processing power level in professional\r\nPrice = price';
+);
 
 -- Dumping data for table parts.case: ~5 rows (approximately)
 /*!40000 ALTER TABLE `case` DISABLE KEYS */;
@@ -43,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `cooler` (
   `Name` tinytext NOT NULL,
   `Type` tinyint(4) NOT NULL,
   `Price` smallint(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nType = 0 (not-K), 1 (Core i5-xxxxK) or 2 (Core i7-xxxxK or xxxxX)\r\nPrice = Price';
+) ;
 
 -- Dumping data for table parts.cooler: ~3 rows (approximately)
 /*!40000 ALTER TABLE `cooler` DISABLE KEYS */;
@@ -66,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `cpu` (
   `Casual` tinyint(4) NOT NULL,
   `Pro` tinyint(4) NOT NULL,
   `Price` smallint(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nSocket = 1150 (Haswell), 1151 (Skylake) or 2011 (Haswell-E/Xeon)\r\nPower = Power needed in watt\r\nCoolerType = 0 (not-K), 1 (Core i5-xxxxK) or 2 (Core i7-xxxxK or xxxxX)\r\nRamType = 0 (DDR3), 1 (DDR4)\r\nGaming = Processing power level in gaming\r\nCasual = processing power level in casual\r\nPro = Processing power level in professional\r\nPrice = price';
+) ;
 
 -- Dumping data for table parts.cpu: ~12 rows (approximately)
 /*!40000 ALTER TABLE `cpu` DISABLE KEYS */;
@@ -96,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `gpu` (
   `Casual` tinyint(4) NOT NULL,
   `Pro` tinyint(4) NOT NULL,
   `Price` smallint(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nPower = Power needed in watt\r\nGaming = Graphics level in gaming\r\nCasual = Graphics level in casual\r\nPro = Graphics level in professional\r\nPrice = price';
+) ;
 
 -- Dumping data for table parts.gpu: ~6 rows (approximately)
 /*!40000 ALTER TABLE `gpu` DISABLE KEYS */;
@@ -121,14 +120,14 @@ CREATE TABLE IF NOT EXISTS `hdd` (
   `Casual` tinyint(4) NOT NULL,
   `Pro` tinyint(4) NOT NULL,
   `Price` smallint(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nCapacity = Size of HDD (GB)\r\nPower = Power needed in watt\r\nStorage = Storage level\r\nGaming = Processing power level in gaming\r\nCasual = processing power level in casual\r\nPro = Processing power level in professional\r\nPrice = price';
+) ;
 
 -- Dumping data for table parts.hdd: ~3 rows (approximately)
 /*!40000 ALTER TABLE `hdd` DISABLE KEYS */;
 INSERT INTO `hdd` (`ID`, `Name`, `Capacity`, `Power`, `Storage`, `Gaming`, `Casual`, `Pro`, `Price`) VALUES
-	(1, 'Seagate 7200RPM', 1000, 10, 1, 1, 1, 0, 48),
-	(2, 'Seagate 7200RPM', 2000, 10, 2, 1, 1, 0, 72),
-	(3, 'Seagate 7200RPM', 4000, 10, 3, 1, 0, 0, 116);
+	(1, 'Seagate 7200RPM 1TB', 1000, 10, 1, 1, 1, 0, 48),
+	(2, 'Seagate 7200RPM 2TB', 2000, 10, 2, 1, 1, 0, 72),
+	(3, 'Seagate 7200RPM 3TB', 4000, 10, 3, 1, 0, 0, 116);
 /*!40000 ALTER TABLE `hdd` ENABLE KEYS */;
 
 
@@ -143,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `motherboard` (
   `Casual` tinyint(4) NOT NULL,
   `Pro` tinyint(4) NOT NULL,
   `Price` smallint(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nForm = 0 (ATX), 2 (Micro ATX), 3 (Mini ITX) (skipped 1 because 1 is ATX Mid in case table)\r\nSocket = 1150 (Haswell), 1151 (Skylake) or 2011 (Haswell-E/Xeon)\r\nPower = Power needed in watt\r\nGaming = Processing power level in gaming\r\nCasual = processing power level in casual\r\nPro = Processing power level in professional\r\nPrice = price';
+);
 
 -- Dumping data for table parts.motherboard: ~5 rows (approximately)
 /*!40000 ALTER TABLE `motherboard` DISABLE KEYS */;
@@ -166,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `optical` (
   `Casual` tinyint(4) NOT NULL,
   `Pro` tinyint(4) NOT NULL,
   `Price` smallint(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nType = 0 (DVD), 1 (BD)\r\nPower = Power needed in watt\r\nGaming = Processing power level in gaming\r\nCasual = processing power level in casual\r\nPro = Processing power level in professional\r\nPrice = price';
+) ;
 
 -- Dumping data for table parts.optical: ~2 rows (approximately)
 /*!40000 ALTER TABLE `optical` DISABLE KEYS */;
@@ -185,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `psu` (
   `Casual` tinyint(4) NOT NULL,
   `Pro` tinyint(4) NOT NULL,
   `Price` smallint(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nPower = Maximum power (Watt)\r\nGaming = Processing power level in gaming\r\nCasual = processing power level in casual\r\nPro = Processing power level in professional\r\nPrice = price';
+) ;
 
 -- Dumping data for table parts.psu: ~8 rows (approximately)
 /*!40000 ALTER TABLE `psu` DISABLE KEYS */;
@@ -212,7 +211,7 @@ CREATE TABLE IF NOT EXISTS `ram` (
   `Casual` tinyint(4) NOT NULL,
   `Pro` tinyint(4) NOT NULL,
   `Price` smallint(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nCapacity = Size of ram (GB)\r\nType = 0 (DDR3), 1 (DDR4)\r\nPower = Power needed in watt\r\nGaming = Processing power level in gaming\r\nCasual = processing power level in casual\r\nPro = Processing power level in professional\r\nPrice = price';
+) ;
 
 -- Dumping data for table parts.ram: ~6 rows (approximately)
 /*!40000 ALTER TABLE `ram` DISABLE KEYS */;
@@ -238,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `ssd` (
   `Casual` tinyint(4) NOT NULL,
   `Pro` tinyint(4) NOT NULL,
   `Price` smallint(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ID = Internal ID of this item\r\nName = Product name\r\nCapacity = Size of SSD (GB)\r\nType = 0 (SATA III), 1 (PCI-E)\r\nPower = Power needed in watt\r\nStorage = Storage level\r\nGaming = Processing power level in gaming\r\nCasual = processing power level in casual\r\nPro = Processing power level in professional\r\nPrice = price';
+) ;
 
 -- Dumping data for table parts.ssd: ~5 rows (approximately)
 /*!40000 ALTER TABLE `ssd` DISABLE KEYS */;
