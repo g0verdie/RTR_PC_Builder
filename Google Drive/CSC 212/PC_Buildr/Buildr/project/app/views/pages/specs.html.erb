@@ -18,14 +18,14 @@ else
             <form action="size.html">
                 <div class="row">
                     <input id="type-input" type="hidden" name="type" value = <%= params[:type] %> />
-                    <div class="col-sm-4">
+                    <div class="col-sm-2">
                         <div class = "row">
                             <h4 class="text-center">Price</h4>
-                            <div class="col-sm-4 col-sm-offset-2">
+                            <div class="col-sm-2 col-sm-offset-3">
                                 <input id="price-input" type="hidden" name="price" />
                                 <div id="sidebar"></div>
                             </div>
-                            <div class="col-sm-4 price">
+                            <div class="col-sm-4 price bring-left">
                                 <% while $iterator >= $start_price do %>
                                 <p><%= $iterator%></p>
                                 <% $iterator -= $increment %>
@@ -33,7 +33,7 @@ else
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-8">
+                    <div class="col-sm-10">
                         <h3>Move the sliders below to adjust your computer's specs to your liking</h3>
                         <h4>Processor</h4>
                         <input id="processor-input" type="hidden" name="processor" />
@@ -146,7 +146,7 @@ else
 </script>
 <script>
     $(document).ready(function(){
-        //   $(' .slider ').linkedSliders();
+        $(' .slider ').linkedSliders();
     });
 </script>
 <script>
