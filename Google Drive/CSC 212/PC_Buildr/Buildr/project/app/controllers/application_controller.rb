@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
   helper_method :query
 
   def query
-            $price = params[:price].to_f * 0.8
-
+            $price = params[:price].to_i * 0.8
+            $original_price = $price
             if params[:type] == "casual"
             	$misc_price = $price * 0.5
             	$price = $price * 0.5
@@ -27,6 +27,6 @@ class ApplicationController < ActionController::Base
             end
 
             $size = params[:case]
-    		return $price
+    		return $original_price
         end
 end
