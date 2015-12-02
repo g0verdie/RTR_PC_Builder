@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :test
 
-  def test
-            $price = params[:price] * .8
+  def query
+            $price = params[:price] * .8	
             if params[:type] == "casual"
             	$misc_price = $price * .5
             	$price = $price * .5
