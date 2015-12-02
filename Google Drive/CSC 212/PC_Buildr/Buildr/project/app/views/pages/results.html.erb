@@ -15,14 +15,18 @@
                 <div class="col-sm-3">
                     <h4 class="text-center">CPU:</h4>
                     <p class="text-center"> <%= $cpu %> </p>
+                    <img src = "<%= Rails.root.join('RTR-images_new', 'CPU', getImage(:cpu, $cpu)).to_s %>" > 
                     <h4 class="text-center">RAM:</h4>
                     <p class="text-center"> <%= $ram %></p>
+                    <img src = "<%= Rails.root.join('RTR-images_new', 'RAM', getImage(:ram, $ram)).to_s %>" > 
                     <h4 class="text-center">Memory:</h4>
                     <p class="text-center"> <%= $stor %></p>
                     <h4 class="text-center">Case:</h4>
                     <p class="text-center"> <%= $case %></p>
+                    <img src = "<%= Rails.root.join('RTR-images_new', 'Case', getImage(:case, $case)).to_s %>" > 
                     <h4 class="text-center">GPU:</h4>
                     <p class="text-center"> <%= $gfx %></p>
+                    <img src = "<%= Rails.root.join('RTR-images_new', 'GPU', getImage(:gpu, $gfx)).to_s %>" > 
                     <h4 class="text-center">Board:</h4>
                     <p class="text-center"><%= $board %></p>
                     <h4 class="text-center">PSU:</h4>
