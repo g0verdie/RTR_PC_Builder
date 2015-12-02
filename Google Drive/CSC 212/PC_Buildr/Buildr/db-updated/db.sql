@@ -77,11 +77,7 @@ INSERT INTO `cpu` (`ID`, `Name`, `Socket`, `Power`, `CoolerType`, `TamType`, `Ga
 	(5, 'Intel Core i5-4460', 1150, 84, 0, 0, 0, 4, 0, 190),
 	(6, 'Intel Core i5-4570', 1150, 84, 0, 0, 2, 0, 0, 200),
 	(7, 'Intel Core i5-4670', 1150, 84, 0, 0, 0, 5, 0, 223),
-	(8, 'Intel Core i5-6500', 1151, 65, 0, 1, 3, 0, 0, 205),
-	(9, 'Intel Core i5-6600K', 1151, 91, 1, 1, 4, 0, 0, 270),
-	(10, 'Intel Core i7-4790', 1150, 84, 0, 0, 5, 0, 0, 310),
-	(11, 'Intel Core i7-6700K', 1151, 91, 2, 1, 6, 0, 0, 400),
-	(12, 'Intel Core i7-5960X', 2011, 140, 2, 1, 7, 0, 0, 1050);
+	(10, 'Intel Core i7-4790', 1150, 84, 0, 0, 5, 0, 0, 310);
 /*!40000 ALTER TABLE `cpu` ENABLE KEYS */;
 
 
@@ -218,9 +214,6 @@ CREATE TABLE IF NOT EXISTS `ram` (
 INSERT INTO `ram` (`ID`, `Name`, `Capacity`, `Type`, `Power`, `Gaming`, `Casual`, `Pro`, `Price`) VALUES
 	(1, 'Crucial Ballistix Sport 2x4GB DDR3-1600', 8, 0, 0, 1, 3, 0, 40),
 	(2, 'Corsair Vengeance Pro 2x8GB DDR3-2400', 16, 0, 0, 5, 0, 0, 70),
-	(3, 'Crucial Ballistix Sport 2x4GB DDR4-2400', 8, 1, 0, 4, 0, 0, 53),
-	(4, 'Corsair Vengeance LPX 2x8GB DDR4-2666', 16, 1, 0, 6, 0, 0, 88),
-	(5, 'Corsair Vengeance LPX 4x8GB DDR4-2400', 32, 1, 0, 7, 0, 0, 190),
 	(6, 'Crucial Ballistix Sport 1x4GB DDR3-1600', 4, 0, 0, 0, 1, 0, 23);
 /*!40000 ALTER TABLE `ram` ENABLE KEYS */;
 

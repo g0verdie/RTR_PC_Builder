@@ -14,27 +14,27 @@
             <div class="row">
                 <div class="col-sm-3">
                     <h4 class="text-center">CPU:</h4>
-                    <p class="text-center"> <!--cpu specs here--> <%= $cpu %> </p>
+                    <p class="text-center"> <%= $cpu %> </p>
                     <h4 class="text-center">RAM:</h4>
-                    <p class="text-center"> ram specs here</p>
+                    <p class="text-center"> <%= $ram %></p>
                     <h4 class="text-center">Memory:</h4>
                     <p class="text-center"> <%= $stor %></p>
                     <h4 class="text-center">Case:</h4>
-                    <p class="text-center"> cases here </p>
+                    <p class="text-center"> <%= $case %></p>
                     <h4 class="text-center">GPU:</h4>
                     <p class="text-center"> <%= $gfx %></p>
                     <h4 class="text-center">Board:</h4>
-                    <p class="text-center">board specs here</p>
+                    <p class="text-center"><%= $board %></p>
                     <h4 class="text-center">PSU:</h4>
-                    <p class="text-center">psu specs here</p>
+                    <p class="text-center"><%= $psu %></p>
                     <h4 class="text-center">Other info:</h4>
-                    <p class="text-center">other info (ports, bluetooth, ect.) here</p>
+                    <p class="text-center"> No other attatchments.</p>
                 </div>
                 <div class = "col-sm-9">
-                    <h3 class="text-center">Mid-range gaming pc: $700</h3>
+                    <h3 class="text-center"><%= params[:case].capitalize %> ATX <%= params[:type].capitalize %>  PC for $<%= params[:price].to_i %> </h3>
                     <img src = "http://ironsidecomputers.com/images/aeolus_front.png" class="center">
                     <hr>
-                    <p>This computer will do moderately well playing Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>This computer will do moderately well playing </p>
                 </div>
             </div>
             <div class="row buttons">

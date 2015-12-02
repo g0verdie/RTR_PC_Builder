@@ -18,26 +18,34 @@ def query
             	$storage = ($price * params[:storage].to_f)/100
                 $graphics = 0
             elsif params[:type] == "gaming"
-            	$misc_price = $price * 0.3
-            	$price = $price * 0.7
-            	$processor = ($price * params[:processor].to_f)/100
-            	$storage = ($price * params[:storage].to_f)/100
-            	$graphics = ($price * params[:graphics].to_f)/100
-            else
             	$misc_price = $price * 0.35
             	$price = $price * 0.65
             	$processor = ($price * params[:processor].to_f)/100
             	$storage = ($price * params[:storage].to_f)/100
             	$graphics = ($price * params[:graphics].to_f)/100
+            else
+            	$misc_price = $price * 0.4
+            	$price = $price * 0.6
+            	$processor = ($price * params[:processor].to_f)/100
+            	$storage = ($price * params[:storage].to_f)/100
+            	$graphics = ($price * params[:graphics].to_f)/100
             end
-            puts $processor
             $size = params[:case]
+            $misc_price = $misc_price/4
+            $case = $database[:case]
+            $case = $case.where(:price => $case.where(:price => 0..$misc_price).max(:price)).select(:name).max(:name)
+            $board = $database[:motherboard]
+            $board = $board.where(:price => $board.where(:price => 0..$misc_price).max(:price)).select(:name).max(:name)
+            $psu =  $database[:psu]
+            $psu = $psu.where(:price => $psu.where(:price => 0..$misc_price).max(:price)).select(:name).max(:name)
+            $ram = $database[:ram]
+            $ram = $ram.where(:price => $ram.where(:price => 0..$misc_price).max(:price)).select(:name).max(:name)
             $cpu = $database[:cpu]
             $cpu = $cpu.where(:price => $cpu.where(:price => 0..$processor).max(:price)).select(:name).max(:name)
             $gfx = $database[:gpu] 
             $gfx = $gfx.where(:price => $gfx.where(:price => 0..$graphics).max(:price)).select(:name).max(:name)
             $stor = params[:type] == "casual" ? $database[:hdd] : $database[:ssd]
             $stor = $stor.where(:price => $stor.where(:price => 0..$storage).max(:price)).select(:name).max(:name)
-    		return $cpu, $gfx,$stor,0,0,0,0
+    		return $cpu, $gfx,$stor,$case,$board,$psu,$ram
         end
  end
