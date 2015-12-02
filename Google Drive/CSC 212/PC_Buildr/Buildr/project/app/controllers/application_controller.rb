@@ -1,10 +1,13 @@
+require 'newegg'
+require 'Sequel'
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   helper_method :query
-
-  def query
+  database = Sequel.sqlite('database.sqlite3')
+  database.run File.read('/Users/ferozrauf/Downloads/RTR_PC_Builder/Google Drive/CSC 212/PC_Buildr/Buildr/db-updated/db.sql')
+def query
             $price = params[:price].to_i * 0.8
             $original_price = $price
             if params[:type] == "casual"
@@ -25,8 +28,23 @@ class ApplicationController < ActionController::Base
             	$storage = ($price * params[:storage].to_f)/100
             	$graphics = ($price * params[:graphics].to_f)/100
             end
-
             $size = params[:case]
     		return $original_price
         end
-end
+ end
+ def cpu
+    item = database[:cpu]
+    return item.where(:price => item.where(:price => 0..params[:processor]).max(:price)).select(:name)
+ end
+ def gpu
+    item = database[:gpu]
+    return item.where(:price => item.where(:price => 0..params[:graphics]).max(:price)).select(:name)
+ end
+ def ssd
+    item = database[:ssd]
+    return item.where(:price => item.where(:price => 0..params[:storage]).max(:price)).select(:name)
+ end
+ def hdd
+    item = database[:hdd]
+    return item.where(:price => item.where(:price => 0..params[:storage]).max(:price)).select(:name)
+ end
