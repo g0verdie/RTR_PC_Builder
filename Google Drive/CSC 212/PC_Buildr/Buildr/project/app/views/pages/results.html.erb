@@ -15,22 +15,26 @@
                 <div class="col-sm-3">
                     <h4 class="text-center">CPU:</h4>
                     <p class="text-center"> <%= $cpu %> </p>
-                    <img src = "<%= Rails.root.join('RTR-images_new', 'CPU', getImage(:cpu, $cpu)).to_s %>" > 
+                    <img src = "./images/RTR-images_new/CPU/<%= getImage(:cpu, $cpu).to_s %>" > 
                     <h4 class="text-center">RAM:</h4>
                     <p class="text-center"> <%= $ram %></p>
-                    <img src = "<%= Rails.root.join('RTR-images_new', 'RAM', getImage(:ram, $ram)).to_s %>" > 
+                    <img src = "./images/RTR-images_new/RAM/<%= getImage(:ram, $ram).to_s %>" > 
                     <h4 class="text-center">Memory:</h4>
                     <p class="text-center"> <%= $stor %></p>
+                    <img src = "./images/RTR-images_new/SSD/<%= getImage(:ssd, $stor).to_s %>" onerror="this.parentNode.removeChild(this)"> 
+                    <img src = "./images/RTR-images_new/HDD/<%= getImage(:hdd, $stor).to_s %>" onerror="this.parentNode.removeChild(this)"> 
                     <h4 class="text-center">Case:</h4>
                     <p class="text-center"> <%= $case %></p>
-                    <img src = "<%= Rails.root.join('RTR-images_new', 'Case', getImage(:case, $case)).to_s %>" > 
+                    <img src = "./images/RTR-images_new/Case/<%= getImage(:case, $case).to_s %>" > 
                     <h4 class="text-center">GPU:</h4>
                     <p class="text-center"> <%= $gfx %></p>
-                    <img src = "<%= Rails.root.join('RTR-images_new', 'GPU', getImage(:gpu, $gfx)).to_s %>" > 
+                    <img src = "./images/RTR-images_new/GPU/<%= getImage(:gpu, $gfx).to_s %>" > 
                     <h4 class="text-center">Board:</h4>
                     <p class="text-center"><%= $board %></p>
+                    <img src = "./images/RTR-images_new/Motherboard/<%= getImage(:motherboard, $board).to_s %>" > 
                     <h4 class="text-center">PSU:</h4>
                     <p class="text-center"><%= $psu %></p>
+                    <img src = "./images/RTR-images_new/PSU/<%= getImage(:psu, $psu).to_s %>" > 
                     <h4 class="text-center">Other info:</h4>
                     <p class="text-center"> No other information to show. </p>
                 </div>
