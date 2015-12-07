@@ -10,7 +10,7 @@
 <h2 class="text-center">The Results Are In!</h2>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 content">
+        <div class="col-sm-8 col-sm-offset-2 content">
             <div class="row">
                 <div class="col-sm-3">
                     <h4 class="text-center">CPU:</h4>
@@ -47,7 +47,7 @@
             </div>
             <div class="row buttons">
                 <a href="size.html" class="col-sm-1 col-sm-offset-1"><button class="btn btn-default">BACK</button></a>
-                <a href="#" class="col-sm-1 col-sm-offset-8"><button class="btn btn-default">CHECKOUT</button></a>
+                <a href="email.html?type=<%= params[:type] %>&price=<%= params[:price] %>&processor=<%= params[:processor] %>&graphics=<%= params[:graphics] %>&storage=<%= params[:storage] %>&case=<%= params[:case] %>" class="col-sm-1 col-sm-offset-8"><button class="btn btn-default">NEXT</button></a>
             </div>
         </div>
     </div>

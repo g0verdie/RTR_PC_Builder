@@ -58,4 +58,5 @@ Rails.application.routes.draw do
   get '/size' => 'pages#size'
   get '/home' => 'pages#home'
   get '/results' => 'pages#results'
+  get '/email' => 'pages#email'
 end

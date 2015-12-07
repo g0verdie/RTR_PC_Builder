@@ -1,0 +1,26 @@
+<h1><a href = "/home.html"> PC Buildr Beta</a></h1>
+<h2 class = "text-center">Submit Your Order</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 content">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <form>
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" name="name"><br>
+                        <label for="phone">Phone Number</label>
+                        <input type="text" class="form-control" name="phone"><br>
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name="email"><br>
+                        <label for="other">Other Coments</label>
+                        <textarea rows="4" name="other" class="form-control"></textarea><br>
+                    </form>
+                </div>
+            </div>
+            <div class="row buttons">
+                <a href="results.html" class="col-sm-1 col-sm-offset-1"><button class="btn btn-default">BACK</button></a>
+                <a href="email.html?type=<%= params[:type] %>&price=<%= params[:price] %>&processor=<%= params[:processor] %>&graphics=<%= params[:graphics] %>&storage=<%= params[:storage] %>&case=<%= params[:case] %>" class="col-sm-1 col-sm-offset-8"><button class="btn btn-default">SUBMIT</button></a>
+            </div>
+        </div>
+    </div>
+</div>
