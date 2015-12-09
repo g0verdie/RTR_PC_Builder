@@ -26,6 +26,8 @@
                     <h4 class="text-center">Case:</h4>
                     <p class="text-center"> <%= $case %></p>
                     <img src = "./images/RTR-images_new/Case/<%= getImage(:case, $case).to_s %>" > 
+                </div>
+                <div class = "col-sm-3">
                     <h4 class="text-center">GPU:</h4>
                     <p class="text-center"> <%= $gfx %></p>
                     <img src = "./images/RTR-images_new/GPU/<%= getImage(:gpu, $gfx).to_s %>" > 
@@ -38,11 +40,17 @@
                     <h4 class="text-center">Other info:</h4>
                     <p class="text-center"> No other information to show. </p>
                 </div>
-                <div class = "col-sm-9">
+                <div class = "col-sm-6">
                     <h3 class="text-center"><%= params[:case].capitalize %> ATX <%= params[:type].capitalize %>  PC for $<%= params[:price].to_i %> </h3>
-                    <img src = "http://ironsidecomputers.com/images/aeolus_front.png" class="center">
+                    <img src = "./images/RTR-images_new/Case/<%= getImage(:case, $case).to_s %>" class="center">
                     <hr>
-                    <p>This computer will do moderately well playing </p>
+                    <p>This computer is a moderately powerful gaming computer, capable of playing modern games at great speeds.  
+                    Your cpu, the brains of the computer, is a modern <%= $cpu %>.  This will allow you to run intensive software, like Adobe Creative Cloud.  YOur build will have
+                    plenty of RAM, which is similar to short term memory.  This will allow games and programs to load faster and allows you to have more applications open at once.
+                    As for storage, you have <%= $stor %>, which is speedy long term memory and will hold dozens of games and hundreds of hours of video.  The gpu, the most important part of a 
+                    gaming system, is a <%= $gfx %>, and will push modern games at 60 frames per second, giving you a smooth, realistic gaming experience.</br>  Your build will
+                    come in a large <%= $case %>.  
+                    </p>
                 </div>
             </div>
             <div class="row buttons">
